@@ -4,6 +4,8 @@ namespace FloatingTexter;
 
 use pocketmine\entity\Entity;
 use pocketmine\level\Level;
+use pocketmine\item\Item;
+use pocketmine\item\ItemFactory;
 use pocketmine\nbt\tag\CompoundTag;
 use pocketmine\network\mcpe\protocol\AddPlayerPacket;
 use pocketmine\Player;
@@ -39,6 +41,7 @@ class FloatingText extends Entity{
         $pk->username = "";
         $pk->entityRuntimeId = $this->getId();
         $pk->position = $this->asVector3();
+        $pk->item = ItemFactory::get(Item::AIR, 0, 0);
         $flags = (
             (1 << Entity::DATA_FLAG_CAN_SHOW_NAMETAG) |
             (1 << Entity::DATA_FLAG_ALWAYS_SHOW_NAMETAG) |
